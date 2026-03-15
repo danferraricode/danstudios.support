@@ -1,103 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support & Privacy Policy</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            padding: 60px 40px;
-            border-radius: 18px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-            max-width: 700px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crown Fidget &mdash; Apple Watch App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#131220;
+  --surface:#1a1928;
+  --surface2:#211f30;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --muted:rgba(255,255,255,0.35);
+  --body:rgba(255,255,255,0.65);
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
 
-        h2 {
-            font-size: 2em;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        p {
-            font-size: 1.2em;
-            color: #86868b;
-            margin-bottom: 30px;
-        }
-        
-        .email {
-            font-size: 1.3em;
-            color: #0071e3;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #f5f5f7;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        
-        .email:hover {
-            background-color: #e8e8ed;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 30px;
-            }
-            
-            h1, h2 {
-                font-size: 2em;
-            }
-            
-            p {
-                font-size: 1.1em;
-            }
-            
-            .email {
-                font-size: 1.1em;
-            }
-        }
-    </style>
+.crown-widget{display:flex;align-items:center;justify-content:center;width:28px;height:52px;flex-shrink:0;cursor:default}
+.crown-svg{width:28px;height:52px;overflow:visible}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;border-bottom:1px solid var(--border);background:rgba(19,18,32,0.9);backdrop-filter:blur(12px)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{width:28px;height:28px;border-radius:50%}
+.nav-logo span{font-family:'DM Serif Display',serif;font-size:17px;color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--white);color:#131220;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.04em;padding:9px 20px;border-radius:100px;text-decoration:none;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.85}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1100px;margin:0 auto;padding:100px 48px 80px;gap:60px}
+.eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--muted)}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(42px,5vw,68px);color:var(--white);line-height:1.08;letter-spacing:-0.02em;margin-bottom:24px}
+.hero h1 em{font-style:italic;color:rgba(255,255,255,0.5)}
+.hero-sub{font-size:16px;color:var(--body);line-height:1.75;max-width:380px;margin-bottom:40px}
+.cta-row{display:flex;align-items:center;gap:20px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:#131220;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:13px 28px;border-radius:100px;text-decoration:none;transition:opacity 0.2s,transform 0.2s}
+.btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-ghost{font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.4)}
+.hero-right{display:flex;justify-content:center}
+.hero-icon{width:220px;height:220px;border-radius:50%;overflow:hidden;border:1px solid var(--border2)}
+.hero-icon img{width:100%;height:100%;object-fit:cover}
+
+hr.rule{border:none;border-top:1px solid var(--border);max-width:1100px;margin:0 auto}
+.wrap{max-width:1100px;margin:0 auto;padding:80px 48px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(30px,4vw,48px);color:var(--white);line-height:1.1;letter-spacing:-0.015em;margin-bottom:20px}
+.section-title em{font-style:italic;color:rgba(255,255,255,0.45)}
+.section-body{font-size:16px;color:var(--body);max-width:520px;line-height:1.75}
+
+.screenshots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+.ss-wrap{border-radius:18px;overflow:hidden;border:1px solid var(--border2);background:var(--surface);aspect-ratio:5/6;display:flex;align-items:flex-start;justify-content:center}
+.ss-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ss-label{font-size:11px;color:var(--muted);text-align:center;margin-top:8px;letter-spacing:0.04em}
+
+/* MODES GRID */
+.modes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:48px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.mode-card{background:var(--surface);padding:36px 32px;position:relative}
+.mode-num{font-family:'DM Serif Display',serif;font-size:42px;color:rgba(255,255,255,0.15);letter-spacing:-0.02em;margin-bottom:8px;line-height:1}
+.mode-name{font-size:15px;font-weight:500;color:var(--white);margin-bottom:4px;letter-spacing:-0.01em}
+.mode-crown{font-size:10px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px}
+.mode-desc{font-size:14px;color:var(--body);line-height:1.65;font-weight:300}
+.mode-detail{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.6;font-weight:300;margin-top:10px;font-style:italic}
+
+.orbit-screens{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.orbit-ss{border-radius:18px;overflow:hidden;border:1px solid var(--border2);background:var(--surface)}
+.orbit-ss img{width:100%;display:block}
+.orbit-ss-label{font-size:11px;color:var(--muted);text-align:center;padding:8px 0 12px;letter-spacing:0.04em}
+
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:48px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.feature-card{background:var(--surface);padding:32px}
+.feat-num{font-family:'DM Serif Display',serif;font-size:42px;color:rgba(255,255,255,0.15);letter-spacing:-0.02em;margin-bottom:8px;line-height:1}
+.feat-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px}
+.feat-desc{font-size:14px;color:var(--body);line-height:1.65;font-weight:300}
+
+/* USE CASES */
+.use-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:48px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.use-card{background:var(--surface);padding:32px 28px}
+.use-moment{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:500}
+.use-title{font-family:'DM Serif Display',serif;font-size:20px;color:var(--white);line-height:1.2;margin-bottom:12px;letter-spacing:-0.01em}
+.use-desc{font-size:14px;color:var(--body);line-height:1.65;font-weight:300}
+
+/* STORY */
+.story-wrap{max-width:1100px;margin:0 auto;padding:80px 48px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.quote-block{border-left:1px solid rgba(255,255,255,0.2);padding:4px 0 4px 28px;margin:28px 0}
+.quote-text{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(17px,2.2vw,22px);color:var(--white);line-height:1.55}
+.story-body{font-size:15px;color:var(--body);line-height:1.8;font-weight:300}
+.story-body p+p{margin-top:16px}
+
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.stat-card{background:var(--surface);padding:32px 28px;text-align:center}
+.stat-num{font-family:'DM Serif Display',serif;font-size:40px;color:var(--white);line-height:1;margin-bottom:6px}
+.stat-label{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+
+.privacy-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 36px;display:flex;gap:24px;align-items:flex-start;margin-top:24px}
+.shield-icon{width:34px;height:34px;flex-shrink:0;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.priv-title{font-size:14px;font-weight:500;color:var(--white);margin-bottom:6px}
+.priv-body{font-size:13px;color:var(--body);line-height:1.65;font-weight:300}
+.priv-body a{color:var(--white);text-decoration:underline;text-underline-offset:2px;opacity:0.6}
+.priv-body a:hover{opacity:1}
+
+footer{border-top:1px solid var(--border);max-width:1100px;margin:0 auto;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+footer a:hover{color:var(--white)}
+
+@media(max-width:900px){
+  .screenshots-grid{grid-template-columns:repeat(2,1fr)}
+  .orbit-screens{grid-template-columns:repeat(2,1fr)}
+  .modes-grid{grid-template-columns:1fr}
+  .use-cases{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  nav{padding:12px 20px}
+  .hero{grid-template-columns:1fr;padding:100px 24px 60px;gap:40px}
+  .hero-right{order:-1}
+  .wrap,.story-wrap{padding:60px 24px}
+  .screenshots-grid{grid-template-columns:repeat(2,1fr)}
+  .feature-grid,.stats-row{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr;gap:40px}
+  .privacy-card{flex-direction:column;padding:24px}
+  footer{flex-direction:column;gap:10px;text-align:center;padding:24px}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Support</h1>
-        <p>For support and feedback, please email:</p>
-        <a href="mailto:dan.studios@outlook.com" class="email">dan.studios@outlook.com</a>
 
-        <h2>Privacy Policy</h2>
-        <p>
-            This app does not collect, store, or share any personal data.  
-            No analytics, tracking technologies, or third-party data collection services are used.  
-            If you have any questions about this policy, feel free to contact me.
-        </p>
+<nav>
+  <div class="nav-logo">
+    <img src="img/icon.png" alt="Crown Fidget">
+    <span>Crown Fidget</span>
+  </div>
+  <div class="nav-right">
+    <div class="crown-widget" aria-hidden="true">
+      <svg class="crown-svg" id="crownSvg" viewBox="0 0 28 52" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="crownClip">
+            <rect x="0" y="0" width="28" height="52" rx="14"/>
+          </clipPath>
+        </defs>
+        <rect x="0.5" y="0.5" width="27" height="51" rx="13.5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <g id="crownGrooves" clip-path="url(#crownClip)">
+          <line x1="4" y1="6"  x2="24" y2="6"  stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="11" x2="24" y2="11" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="16" x2="24" y2="16" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="21" x2="24" y2="21" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="26" x2="24" y2="26" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="31" x2="24" y2="31" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="36" x2="24" y2="36" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="41" x2="24" y2="41" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="4" y1="46" x2="24" y2="46" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+        <g id="crownHighlight" clip-path="url(#crownClip)">
+          <line id="hlLine" x1="4" y1="26" x2="24" y2="26" stroke="rgba(255,255,255,0)" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </svg>
     </div>
+    <a href="https://apps.apple.com/gb/app/crown-fidget/id6755297230" class="nav-cta" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      App Store
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Apple Watch &middot; Digital Crown &middot; watchOS</p>
+    <h1>Find your zone.<br><em>Beat your best.</em></h1>
+    <p class="hero-sub">Crown Fidget turns your Apple Watch into a discreet focus tool. Spin, breathe, and keep your mind present &mdash; right on your wrist.</p>
+    <div class="cta-row">
+      <a href="https://apps.apple.com/gb/app/crown-fidget/id6755297230" class="btn-primary" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download
+      </a>
+      <a href="#story" class="btn-ghost">Read the story</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-icon">
+      <img src="img/icon.png" alt="Crown Fidget">
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SCREENSHOTS -->
+<div class="wrap">
+  <p class="eyebrow">Crown Fidget at a glance</p>
+  <h2 class="section-title">Spin. Focus.<br><em>Feel it.</em></h2>
+  <p class="section-body">Every rotation tracked. Every session felt. Crown Fidget uses the Digital Crown to turn idle moments into moments of focus.</p>
+  <div class="screenshots-grid">
+    <div><div class="ss-wrap"><img src="img/ss1.png" alt="Crown Fidget"></div><p class="ss-label">Crown Fidget</p></div>
+    <div><div class="ss-wrap"><img src="img/ss10.png" alt="Main Dial"></div><p class="ss-label">Main Dial</p></div>
+    <div><div class="ss-wrap"><img src="img/ss2.png" alt="Guided Focus"></div><p class="ss-label">Guided Focus</p></div>
+    <div><div class="ss-wrap"><img src="img/ss3.png" alt="Dim Mode"></div><p class="ss-label">Dim Mode</p></div>
+    <div><div class="ss-wrap"><img src="img/ss8.png" alt="Into the Stars"></div><p class="ss-label">Cycle Through The Stars</p></div>
+    <div><div class="ss-wrap"><img src="img/ss9.png" alt="Weather the Storm"></div><p class="ss-label">Weather The Storm</p></div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- MODES -->
+<div class="wrap">
+  <p class="eyebrow">Every mode. One Crown.</p>
+  <h2 class="section-title">Built for the<br><em>moments in between</em></h2>
+  <p class="section-body">Each mode uses the Digital Crown differently. Spin to focus, reverse to calm, hold to breathe. Your wrist, your rhythm.</p>
+
+  <div class="modes-grid">
+    <div class="mode-card">
+      <div class="mode-num">01</div>
+      <div class="mode-name">Guide Mode</div>
+      <div class="mode-crown">Digital Crown &middot; Follow the guide</div>
+      <div class="mode-desc">A moving guide appears within the dial. Rotate the Digital Crown to follow it and watch the visual effects respond as you stay close. A mindfulness feature designed to anchor your attention without effort.</div>
+      <div class="mode-detail">Tap the guide button to activate. Tap again to return to free spinning.</div>
+    </div>
+    <div class="mode-card">
+      <div class="mode-num">02</div>
+      <div class="mode-name">Stealth Mode</div>
+      <div class="mode-crown">Digital Crown &middot; Dim &amp; discreet</div>
+      <div class="mode-desc">Reduces the dial&rsquo;s brightness for discreet fidgeting. Perfect for virtual meetings &mdash; keep your hands busy and your mind present without drawing attention. Ideal for winding down before sleep.</div>
+      <div class="mode-detail">Tap the moon button to toggle between dim and bright.</div>
+    </div>
+    <div class="mode-card">
+      <div class="mode-num">03</div>
+      <div class="mode-name">Into the Stars</div>
+      <div class="mode-crown">Digital Crown &middot; Clockwise to accelerate &middot; Anti-clockwise to reverse</div>
+      <div class="mode-desc">Journey through space at your own pace. Spin clockwise to glide forward through the stars, building speed with each turn. Reverse by spinning anti-clockwise. A mindful moment of calm &mdash; and if you&rsquo;re lucky, a rare comet will streak across your path.</div>
+      <div class="mode-detail">The speed is entirely yours to control.</div>
+    </div>
+    <div class="mode-card">
+      <div class="mode-num">04</div>
+      <div class="mode-name">Weather the Storm</div>
+      <div class="mode-crown">Digital Crown &middot; Clockwise to intensify &middot; Anti-clockwise to calm</div>
+      <div class="mode-desc">Rotate clockwise to build from a soft drizzle to a powerful storm, complete with thunder and lightning. Spin back to find calm. A pulsating &ldquo;Breathe&rdquo; label guides your breathing as the rain falls &mdash; find your perfect rhythm for mindfulness and calm.</div>
+      <div class="mode-detail">The intensity is yours. So is the calm.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- ORBIT PONG -->
+<div class="wrap">
+  <p class="eyebrow">New in version 1.4</p>
+  <h2 class="section-title">Introducing<br><em>Orbit Pong</em></h2>
+  <p class="section-body">Crown Fidget&rsquo;s first focus arcade game. Spin your paddle around the arena using the Digital Crown and keep the ball in play for as long as you can.</p>
+  <div class="orbit-screens">
+    <div class="orbit-ss"><img src="img/ss4.png" alt="Start"><p class="orbit-ss-label">Start</p></div>
+    <div class="orbit-ss"><img src="img/ss5.png" alt="In play"><p class="orbit-ss-label">In play</p></div>
+    <div class="orbit-ss"><img src="img/ss6.png" alt="Tracking"><p class="orbit-ss-label">Tracking</p></div>
+    <div class="orbit-ss"><img src="img/ss7.png" alt="Your focus result"><p class="orbit-ss-label">Your focus result</p></div>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feat-num">01</div>
+      <div class="feat-title">It starts simply</div>
+      <div class="feat-desc">Spin the Digital Crown. Keep the ball in the arena. Simple enough to pick up in seconds, satisfying enough to keep coming back.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feat-num">02</div>
+      <div class="feat-title">Then something shifts</div>
+      <div class="feat-desc">Around 50 seconds you&rsquo;ll notice yourself breathing slower &mdash; sharpening your focus without being told to. No instructions needed.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feat-num">03</div>
+      <div class="feat-title">A focus tool in disguise</div>
+      <div class="feat-desc">It isn&rsquo;t just an arcade game &mdash; it&rsquo;s a mindfulness tool that doesn&rsquo;t feel like one. Personal bests are chased. Friends are challenged.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feat-num">04</div>
+      <div class="feat-title">Every second counts</div>
+      <div class="feat-desc">Beating your personal best feels disproportionately, brilliantly satisfying. And then you&rsquo;ll immediately want to beat it again.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- USE CASES -->
+<div class="wrap">
+  <p class="eyebrow">Crown Fidget in your day</p>
+  <h2 class="section-title">For the moments<br><em>your mind wanders</em></h2>
+  <p class="section-body">Crown Fidget isn&rsquo;t just for idle hands. It&rsquo;s for the specific moments when focus matters most &mdash; and your phone is the last thing you should reach for.</p>
+  <div class="use-cases">
+    <div class="use-card">
+      <div class="use-moment">Watching a film</div>
+      <h3 class="use-title">Hands busy.<br>Mind anchored.</h3>
+      <p class="use-desc">Crown Fidget while you watch. Not instead of watching &mdash; it&rsquo;s what helps you actually watch. Your hands have something to do so your mind can stay present on screen.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-moment">Virtual meetings</div>
+      <h3 class="use-title">Listen more.<br>Wander less.</h3>
+      <p class="use-desc">Switch to Stealth Mode and Crown Fidget through your next call. The dim dial keeps your hands quietly occupied &mdash; strengthening focus and keeping your mind from drifting.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-moment">Winding down</div>
+      <h3 class="use-title">Calm the noise.<br>Find sleep.</h3>
+      <p class="use-desc">Weather the Storm or glide through the stars as the day ends. A quiet ritual for your wrist that signals to your mind it&rsquo;s time to slow down.</p>
+    </div>
+  </div>
+    <p style="font-size:15px;color:var(--muted);line-height:1.75;margin-top:36px;font-style:italic;font-family:'DM Serif Display',serif;">
+    On the tube. In a waiting room. Between meetings. Wherever your mind needs a quiet anchor &mdash; Crown Fidget is already on your wrist.
+  </p>
+</div>
+
+<hr class="rule">
+
+<!-- STORY -->
+<div class="story-wrap" id="story">
+  <div class="two-col">
+    <div>
+      <p class="eyebrow">The story</p>
+      <h2 class="section-title">Built from a<br><em>personal need</em></h2>
+      <div class="story-body">
+        <p>It started with a sensation. The feel of the Digital Crown &mdash; the haptic feedback, the satisfying resistance of each turn. There was nothing on Apple Watch that simply let you spin it. No app built around that feeling.</p>
+        <p>So Crown Fidget was born. Not as a product, but as a personal tool &mdash; something to reach for instead of a phone. A way to stop doom scrolling. Something for the hands that didn&rsquo;t demand attention from the mind.</p>
+        <p>It worked. And then it grew.</p>
+      </div>
+    </div>
+    <div>
+      <div class="quote-block">
+        <p class="quote-text">&ldquo;Crown Fidget started as my own focus tool &mdash; something I could use discreetly when my mind needed steadying. Orbit Pong grew from the same instinct &mdash; the same Crown, the same haptics, now with a gentle challenge to keep your mind present.&rdquo;</p>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:16px;font-weight:300;letter-spacing:0.03em">Built independently, with care.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- STATS -->
+<div class="wrap">
+  <p class="eyebrow">At a glance</p>
+  <h2 class="section-title">Everything you need.<br><em>Nothing you don&rsquo;t.</em></h2>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">1.4</div>
+      <div class="stat-label">Latest version</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Data collected</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">&infin;</div>
+      <div class="stat-label">Personal bests to beat</div>
+    </div>
+  </div>
+  <div class="privacy-card">
+    <div class="shield-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div>
+      <p class="priv-title">Privacy policy</p>
+      <p class="priv-body">This app does not collect, store, or share any personal data. No analytics, tracking technologies, or third-party data collection services are used.<br><br>Questions? <a href="mailto:dan.studios@outlook.com">dan.studios@outlook.com</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>&copy; 2026 Crown Fidget</span>
+  <a href="mailto:dan.studios@outlook.com">Support</a>
+</footer>
+
+<script>
+(function(){
+  var grooves = document.querySelectorAll('#crownGrooves line');
+  var highlight = document.getElementById('hlLine');
+  var lastScroll = window.scrollY;
+  var offset = 0;
+  var targetOffset = 0;
+  var glowTarget = 0;
+  var glowCurrent = 0;
+  var raf = null;
+  var idleTimer = null;
+  var GROOVE_SPACING = 5;
+  var GROOVE_COUNT = grooves.length;
+  var TOTAL_HEIGHT = GROOVE_SPACING * GROOVE_COUNT;
+
+  function getGrooveY(index, off){
+    var base = 6 + index * GROOVE_SPACING;
+    var y = ((base + off) % TOTAL_HEIGHT + TOTAL_HEIGHT) % TOTAL_HEIGHT;
+    if(y < 2) y += TOTAL_HEIGHT;
+    if(y > 50) y -= TOTAL_HEIGHT;
+    return y;
+  }
+
+  function lerp(a,b,t){ return a+(b-a)*t; }
+
+  function render(){
+    offset = lerp(offset, targetOffset, 0.12);
+    glowCurrent = lerp(glowCurrent, glowTarget, 0.06);
+    for(var i=0;i<grooves.length;i++){
+      var y = getGrooveY(i, offset);
+      grooves[i].setAttribute('y1', y);
+      grooves[i].setAttribute('y2', y);
+      var distFromCenter = Math.abs(y - 26) / 26;
+      var alpha = 0.08 + (1 - distFromCenter) * 0.14 * glowCurrent;
+      grooves[i].setAttribute('stroke','rgba(255,255,255,'+alpha.toFixed(3)+')');
+    }
+    var hlAlpha = 0.75 * glowCurrent;
+    highlight.setAttribute('stroke','rgba(255,255,255,'+hlAlpha.toFixed(3)+')');
+    if(Math.abs(targetOffset - offset) > 0.05 || Math.abs(glowTarget - glowCurrent) > 0.01){
+      raf = requestAnimationFrame(render);
+    } else {
+      raf = null;
+    }
+  }
+
+  function kick(){ if(!raf) raf = requestAnimationFrame(render); }
+
+  window.addEventListener('scroll', function(){
+    var scrollY = window.scrollY;
+    var delta = scrollY - lastScroll;
+    lastScroll = scrollY;
+    targetOffset += delta * 0.18;
+    glowTarget = 1;
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function(){ glowTarget = 0; kick(); }, 500);
+    kick();
+  }, {passive:true});
+})();
+</script>
+
 </body>
 </html>
